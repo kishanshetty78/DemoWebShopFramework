@@ -42,7 +42,7 @@ public class SearchTest extends Base{
 		Assert.assertEquals(sr.getSearchProdErrMsg(),testProp.getProperty("NoProductErrMsg"),"Intended message not displayed");
 	}
 	
-	@Test(priority=3,dependsOnMethods= {"searchwithInvalidProductName()"})
+	@Test(priority=3)
 	public void searchwithoutanyProduct()
 	{
 		sr = search.enterNoProdValue();

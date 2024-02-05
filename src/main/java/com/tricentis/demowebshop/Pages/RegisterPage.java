@@ -31,7 +31,7 @@ public class RegisterPage {
 	@FindBy(xpath="//span[@class='required']")
 	private WebElement AstreixSym;
 
-	@FindBy(xpath="//input[@id='FirstName']")
+	@FindBy(xpath="//input[@name='FirstName']")
 	private WebElement FirstNamefield;
 	
 	@FindBy(xpath="//input[@id='LastName']")

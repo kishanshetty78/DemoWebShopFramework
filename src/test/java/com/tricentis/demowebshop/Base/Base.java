@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -50,6 +51,9 @@ public class Base {
 	{
 		if(BrowserName.equalsIgnoreCase("chrome"))
 		{
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-extensions");
+			options.addArguments("disable-infobars");
 			driver = new ChromeDriver();
 		}
 		else if(BrowserName.equalsIgnoreCase("firefox"))
@@ -59,7 +63,7 @@ public class Base {
 			fp.addPreference("app.update.enabled", false);
 			driver = new FirefoxDriver(fp);
 		}
-		else if(BrowserName.equalsIgnoreCase("edge"))
+		else if(BrowserName.equalsIgnoreCase("edge") || BrowserName.equalsIgnoreCase("microsoftedge") || BrowserName.equalsIgnoreCase("microsoft edge"))
 		{
 			driver = new EdgeDriver();
 		}
