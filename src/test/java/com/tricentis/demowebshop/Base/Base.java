@@ -54,7 +54,7 @@ public class Base {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("disable-extensions");
 			options.addArguments("disable-infobars");
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
 		}
 		else if(BrowserName.equalsIgnoreCase("firefox"))
 		{
