@@ -5,10 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegisterPage {
 	
 	WebDriver driver;
+	WebDriverWait wait; 
 	
 	@FindBy(xpath="//span[@for='FirstName']")
 	private WebElement FirstNameMsg;
@@ -123,6 +125,7 @@ public class RegisterPage {
 		FirstNamefield.sendKeys(actualFirstName);
 		LastNamefield.sendKeys(actualLastName);
 		Emailfield.sendKeys(actualEmailField);
+		Emailfield.sendKeys(Keys.TAB);
 	}
 	
 	public void registrValidateMinPwdLength(String actualFirstName, String actualLastName, String actualEmailField, String actualPwd)

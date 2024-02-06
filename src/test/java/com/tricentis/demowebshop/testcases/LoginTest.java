@@ -1,9 +1,5 @@
 package com.tricentis.demowebshop.testcases;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -96,15 +92,6 @@ public class LoginTest extends Base{
 	public void verifyInvalidEmailMsg()
 	{
 		lpage.enterEmailAddress(testProp.getProperty("InvalidEmail"));
-		
-		try {
-			Robot rb = new Robot();
-			rb.keyPress(KeyEvent.VK_TAB);
-			rb.keyRelease(KeyEvent.VK_TAB);
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		String emailwarningmsg = lpage.invalidEmailMsg();
 		Assert.assertEquals(emailwarningmsg,testProp.getProperty("InvalidMailErrMsg"),"No error message is displayed");

@@ -1,5 +1,6 @@
 package com.tricentis.demowebshop.Pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +25,7 @@ public class LoginPage {
 	@FindBy(xpath="//div[@class='validation-summary-errors']/ul/li")
 	private WebElement CustWarMsg;
 	
-	@FindBy(xpath="//span[@class='field-validation-error']")
+	@FindBy(xpath="//span[@class='field-validation-error']/span[@for='Email']")
 	private WebElement InvalidMailMsg;
 	
 	public LoginPage(WebDriver driver)
@@ -36,6 +37,7 @@ public class LoginPage {
 	public void enterEmailAddress(String emailText)
 	{
 		emailField.sendKeys(emailText);
+		emailField.sendKeys(Keys.TAB);
 	}
 		
 	public HomeLoggedInPage enterLogincreds(String emailText, String passwordText)

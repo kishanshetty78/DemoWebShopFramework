@@ -1,9 +1,5 @@
 package com.tricentis.demowebshop.testcases;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -54,15 +50,6 @@ String astriexsym;
 	public void EmailValidationErrMsg()
 	{
 		rgpage.registrWithInvalidMail(testProp.getProperty("FirstName"), testProp.getProperty("LastName"), testProp.getProperty("InvalidEmail"));
-		
-		try {
-			Robot rb = new Robot();
-			rb.keyPress(KeyEvent.VK_TAB);
-			rb.keyRelease(KeyEvent.VK_TAB);
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		astriexsym = rgpage.getAstrexFormat();
 		Assert.assertEquals(astriexsym+ rgpage.EmailErrMsg(),testProp.getProperty("EmailWrongMsg"),"Email entered is in incorrect format");
